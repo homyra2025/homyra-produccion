@@ -49,7 +49,7 @@ export default function Admin() {
     })
     
     if (!error) {
-      alert('✅ Propiedad guardada!')
+      alert('✅ Propiedad guardada correctamente!')
       setForm({ title: '', description: '', price: '', address: '', lat: '', lng: '' })
       setImage(null)
     } else {
@@ -75,7 +75,6 @@ export default function Admin() {
       <main className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="bg-white rounded-xl shadow-lg p-6">
           <form onSubmit={handleSubmit} className="space-y-6">
-            {/* Campos anteriores */}
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">Título *</label>
               <input type="text" value={form.title} onChange={e => setForm({...form, title: e.target.value})}
@@ -102,18 +101,14 @@ export default function Admin() {
               </div>
             </div>
 
-            {/* Foto upload */}
+            {/* FOTO */}
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">Foto de la propiedad</label>
-              <input 
-                type="file" 
-                accept="image/*"
-                onChange={e => setImage(e.target.files?.[0] || null)}
-                className="w-full p-3 border border-gray-300 rounded-lg"
-              />
+              <input type="file" accept="image/*" onChange={e => setImage(e.target.files?.[0] || null)}
+                className="w-full p-3 border border-gray-300 rounded-lg" />
             </div>
 
-            {/* Coordenadas para mapa */}
+            {/* COORDENADAS */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">Latitud (para mapa)</label>
